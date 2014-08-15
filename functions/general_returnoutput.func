@@ -1,0 +1,21 @@
+#####
+# Return output
+#####
+
+return_output() {
+	# This function can send a message to screen & logging or logging only
+	if [[ "$output" = "yes" ]]; then
+		if [[ "$type" = "err" ]]; then
+			printf "[${red}ERR${normal}]\t"
+		else
+			printf "[${green}OK${normal}]\t"
+		fi
+		printf "$message\n"
+	fi
+	# We always log, so logging goes next
+	## TODO look at some logging to come up with a nice format
+	# Check if we need to stop the script now
+	if [[ "$stop" = "yes" ]]; then
+		exit 1
+	fi
+}

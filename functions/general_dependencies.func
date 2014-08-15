@@ -1,0 +1,36 @@
+#####
+# Dependency check
+#####
+
+check_dependency() {
+    my_needed_commands="HandBrakeCLI mkvmerge mkvmerge fromdos"
+    missing_counter=0
+    for needed_command in $my_needed_commands
+    do
+        if ! hash "$needed_command" >/dev/null 2>&1; then
+            printf "Command not found in PATH: %s\n" "$needed_command" >&2
+            ((missing_counter++))
+        fi
+    done
+    if ((missing_counter > 0)); then
+        printf "Minimum %d commands are missing in PATH, aborting\n" "$missing_counter" >&2
+        exit 1
+    fi
+}
+
+check_directory() {
+    # Required directory check
+    my_needed_dirs="$queuedir $tempdir $readydir $trashdir"
+    for needed_dir in $my_needed_dirs
+    do
+        if [[ ! -d "$needed_dir" ]]; then
+            # Dir not found, creating it!
+            mkdir -p $needed_dir
+            if [[ "$?" -gt 0 ]]; then
+                printf "Directory not found and unable to create it: $needed_dir\n"
+                printf "Aborting."
+                exit 1
+            fi
+        fi
+    done
+}

@@ -1,0 +1,10 @@
+#####
+# Usage function
+#####
+usage() {
+	printf "Usage: $PROGNAME [options]\n\n"
+	printf "Options:\n"
+	printf " -b \t\t Batch operation. Process all job files.\n"
+	printf " -j \t\t Create job files.\n"
+	printf "If no options are given, $PROGNAME is always run interactively.\n"
+}

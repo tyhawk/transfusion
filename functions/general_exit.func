@@ -1,0 +1,19 @@
+#####
+# Exit Functions
+#####
+
+exit_int() {
+  # Function to do a clean exit when an interrupt is trapped
+  printf "${red}Process aborted by user${normal}\n"
+  clean_tmpfiles
+  break # break out of the loop
+  exit 0
+}
+
+exit_term() {
+  # Function to do a clean exit when a termination is trapped
+  echo "${red}Process terminated${normal}"
+  clean_tmpfiles
+  break # break out of the loop
+  exit 1
+}
