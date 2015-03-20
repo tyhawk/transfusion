@@ -1,0 +1,13 @@
+# Source: http://patorjk.com/software/taag/#p=display&f=Big&t=TransFusion
+
+menulogo() {
+	# Clear screen en print 'logo'
+	clear
+	printf "${txtblue}${txtbright}  _______                  ______         _/n"
+	printf " |__   __|                |  ____|       (_)/n"
+	printf "    | |_ __ __ _ _ __  ___| |__ _   _ ___ _  ___  _ __/n"
+	printf "    | | '__/ _` | '_ \/ __|  __| | | / __| |/ _ \| '_ \ /n"
+	printf "    | | | | (_| | | | \__ \ |  | |_| \__ \ | (_) | | | |/n"
+	printf "    |_|_|  \__,_|_| |_|___/_|   \__,_|___/_|\___/|_| |_|/n"
+	printf "\n   Create transcoded MKVs from raw video files${txtreset}\n\n"
+}

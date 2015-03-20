@@ -37,21 +37,6 @@ do_error() {
   breakloop="YES"
 }
 
-#####
-# Menu functions
-#####
-menulogo() {
-	# Clear screen en print 'logo'
-	clear
-	printf "${txtblue}${txtbright}#     #                                 ######\n"
-	printf "##   ##  ######  #####      #      ##   #     #  #####   ######  #####\n"
-	printf "# # # #  #       #    #     #     #  #  #     #  #    #  #       #    #\n"
-	printf "#  #  #  #####   #    #     #    #    # ######   #    #  #####   #    #\n"
-	printf "#     #  #       #    #     #    ###### #        #####   #       #####\n"
-	printf "#     #  #       #    #     #    #    # #        #   #   #       #\n"
-	printf "#     #  ######  #####      #    #    # #        #    #  ######  #\n"
-	printf "\n         Create transcoded MKVs from raw video files${txtreset}\n\n"
-}
 
 #####
 # Job file functions
