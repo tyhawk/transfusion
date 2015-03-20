@@ -6,9 +6,9 @@ return_output() {
 	# This function can send a message to screen & logging or logging only
 	if [[ "$output" = "yes" ]]; then
 		if [[ "$type" = "err" ]]; then
-			printf "[${red}ERR${normal}]\t"
+			printf "[${txtred}ERR${txtreset}]\t"
 		else
-			printf "[${green}OK${normal}]\t"
+			printf "[${txtgreen}OK${txtreset}]\t"
 		fi
 		printf "$message\n"
 	fi

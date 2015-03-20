@@ -1,8 +1,8 @@
 #!/bin/bash
 #############################################################################
 # TransFusion - the One-Stop TV Show & Movie File Preparer & Uploader
-#             (not named OSTVSMFPU because mediaprep is easier to remember)
-# © 2014 John Gerritse
+#             (not named OSTVSMFPU because TransFusion is easier to remember)
+# © 2015 John Gerritse
 #
 # Create a fully transcoded MKV file of TV episodes & Movies in one script
 #############################################################################
@@ -22,10 +22,10 @@ mydir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Not sure what would be a nice place to stick the conf file yet
 # For now, I will leave it in the same dir as the script
-mediaprepconf="$mydir/mediaprep.conf"
+transfusionconf="$mydir/transfusion.conf"
 
 # Same for the logfile. Let's stick that into the same directory for now.
-mediapreplog="$mydir/mediaprep.log"
+transfusionlog="$mydir/transfusion.log"
 
 #####
 # Load general functions
@@ -33,7 +33,7 @@ mediapreplog="$mydir/mediaprep.log"
 source functions/general_*.func
 
 do_error() {
-  printf "[${red}ERR${normal}]\n"
+  printf "[${txtred}ERR${txtreset}]\n"
   breakloop="YES"
 }
 
@@ -43,14 +43,14 @@ do_error() {
 menulogo() {
 	# Clear screen en print 'logo'
 	clear
-	printf "${blue}${bright}#     #                                 ######\n"
+	printf "${txtblue}${txtbright}#     #                                 ######\n"
 	printf "##   ##  ######  #####      #      ##   #     #  #####   ######  #####\n"
 	printf "# # # #  #       #    #     #     #  #  #     #  #    #  #       #    #\n"
 	printf "#  #  #  #####   #    #     #    #    # ######   #    #  #####   #    #\n"
 	printf "#     #  #       #    #     #    ###### #        #####   #       #####\n"
 	printf "#     #  #       #    #     #    #    # #        #   #   #       #\n"
 	printf "#     #  ######  #####      #    #    # #        #    #  ######  #\n"
-	printf "\n         Create transcoded MKVs from raw video files${normal}\n\n"
+	printf "\n         Create transcoded MKVs from raw video files${txtreset}\n\n"
 }
 
 #####
@@ -64,10 +64,6 @@ create_jobs() {
 #####
 # Processing functions
 #####
-process_jobs() {
-	# All functions to process jobs go here
-	count_jobs
-}
 count_jobs() {
 	jobcount=$(ls $queuedir/*.job)
 	if [[ "$jobcount" -eq 0 ]]; then
@@ -75,14 +71,17 @@ count_jobs() {
 		return_output
 	fi
 }
-
+process_jobs() {
+	# All functions to process jobs go here
+	count_jobs
+}
 
 #####
 # Misc functions
 #####
 sourceconfig() {
 	# Source the config file
-	source $mediaprepconf
+	source $transfusionconf
 }
 
 #####

@@ -2,9 +2,15 @@
 # Pretty text
 #####
 
-red=$(tput setaf 1)
-green=$(tput setaf 2)
-yellow=$(tput setaf 3)
-blue=$(tput setaf 4)
-normal=$(tput sgr0)
-bright=$(tput bold)
+# Prettifying the text...
+# Defining all colours so all are ready to be used
+txtred=$(tput setaf 1)
+txtgreen=$(tput setaf 2)
+txtyellow=$(tput setaf 3)
+txtblue=$(tput setaf 4)
+txtpurple=$(tput setaf 5)
+txtcyan=$(tput setaf 6)
+txtwhite=$(tput setaf 7)
+txtuline=$(tput sgr 0 1)
+txtbright=$(tput bold)
+txtreset=$(tput sgr0)
