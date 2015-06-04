@@ -1,2 +1,3 @@
 https://gist.github.com/derekkwok/4077509
 http://ffmpeg.org
+http://journal.code4lib.org/articles/9856
