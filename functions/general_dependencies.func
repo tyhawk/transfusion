@@ -3,7 +3,7 @@
 #####
 
 check_dependency() {
-    my_needed_commands="HandBrakeCLI mkvmerge mkvmerge fromdos"
+    my_needed_commands="HandBrakeCLI mkvmerge mkvclean fromdos rsync"
     missing_counter=0
     for needed_command in $my_needed_commands
     do

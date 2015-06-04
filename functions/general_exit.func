@@ -4,7 +4,7 @@
 
 exit_int() {
   # Function to do a clean exit when an interrupt is trapped
-  printf "${red}Process aborted by user${normal}\n"
+  printf "${txtred}Process aborted by user${txtreset}\n"
   clean_tmpfiles
   break # break out of the loop
   exit 0
@@ -12,7 +12,7 @@ exit_int() {
 
 exit_term() {
   # Function to do a clean exit when a termination is trapped
-  echo "${red}Process terminated${normal}"
+  echo "${txtred}Process terminated${txtreset}"
   clean_tmpfiles
   break # break out of the loop
   exit 1
